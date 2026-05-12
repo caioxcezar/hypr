@@ -7,6 +7,9 @@ Terminal = "foot"
 FileManager = "nautilus"
 Menu = "fuzzel"
 
+NVIDIA = false
+KDE = true
+
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
@@ -22,7 +25,16 @@ hl.env("PROTON_USE_NTSYNC", "1")
 hl.env("PROTON_ENABLE_HDR", "1")
 hl.env("WAYLANDDRV_PRIMARY_MONITOR", "DP-3")
 
-hl.env("LIBVA_DRIVER_NAME", "nvidia")
-hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
-hl.env("PROTON_ENABLE_NVAPI", "1")
-hl.env("PROTON_DLSS_UPGRADE", "1")
+if KDE then
+	hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
+	hl.env("QT_QPA_PLATFORM", "wayland;xcb")
+	hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
+	hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+end
+
+if NVIDIA then
+	hl.env("LIBVA_DRIVER_NAME", "nvidia")
+	hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+	hl.env("PROTON_ENABLE_NVAPI", "1")
+	hl.env("PROTON_DLSS_UPGRADE", "1")
+end
