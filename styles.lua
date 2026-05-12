@@ -55,6 +55,28 @@ hl.config({
 	animations = {
 		enabled = true,
 	},
+
+	group = {
+		col = {
+			border_active = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
+			border_inactive = "rgba(595959aa)",
+		},
+		groupbar = {
+			col = { active = "rgb(131313)", inactive = "rgba(2c131313)" },
+			height = 18,
+			keep_upper_gap = false,
+			gradients = true,
+			font_size = 12,
+			font_weight_active = "bold",
+			font_weight_inactive = "bold",
+			text_color = "rgb(dddddd)",
+			text_color_inactive = "rgb(131313)",
+			gradient_rounding = 5,
+			gradient_round_only_edges = false,
+			indicator_height = 0,
+			blur = true,
+		},
+	},
 })
 
 -- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
