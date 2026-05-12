@@ -84,3 +84,5 @@ hl.bind(mainMod .. " + ALT + left", hl.dsp.workspace.move({ monitor = "l" }))
 hl.bind(mainMod .. " + ALT + right", hl.dsp.workspace.move({ monitor = "r" }))
 hl.bind(mainMod .. " + ALT + up", hl.dsp.workspace.move({ monitor = "u" }))
 hl.bind(mainMod .. " + ALT + down", hl.dsp.workspace.move({ monitor = "d" }))
+
+hl.bind("switch:on:Lid Switch", hl.dsp.global("quickshell:lock-screen"), { locked = true })
