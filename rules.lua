@@ -84,12 +84,12 @@ hl.layer_rule({
 	name = "quickshell-blur",
 	blur = true,
 	ignore_alpha = 0.1,
-	match = { class = "quickshell" },
+	match = { namespace = "quickshell.*" },
 })
 
 hl.layer_rule({
 	name = "grim-blur",
-	match = { class = "grim" },
+	match = { namespace = "selection" },
 	blur = false,
 })
 
