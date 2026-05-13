@@ -7,18 +7,21 @@ Terminal = "foot"
 FileManager = "nautilus"
 Menu = "fuzzel"
 
-NVIDIA = false
-KDE = true
+local vga = string.lower(RunCommand("lspci | grep -i 'vga\\|3d\\|display'"))
+local nautilus = Trim(RunCommand("whereis -b dolphin | cut -d: -f2-"))
+
+NVIDIA = string.find(vga, "nvidia")
+AMD = string.find(vga, "amd")
+KDE = nautilus ~= ""
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
-
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_THEME", "DeppinDark-cursors")
+hl.env("HYPRCURSOR_THEME", "bloom")
 
 hl.env("PROTON_ENABLE_WAYLAND", "1")
 hl.env("PROTON_USE_NTSYNC", "1")

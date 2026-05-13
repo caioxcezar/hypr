@@ -2,6 +2,7 @@
 -- Refer to the wiki for more information.
 -- https://wiki.hypr.land/Configuring/Start/
 
+require("functions")
 require("variables")
 require("monitors")
 require("autostart")
