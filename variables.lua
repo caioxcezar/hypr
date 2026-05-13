@@ -18,7 +18,7 @@ KDE = true
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_THEME", "DeppinDark-cursors")
+hl.env("HYPRCURSOR_THEME", "bloom")
 
 hl.env("PROTON_ENABLE_WAYLAND", "1")
 hl.env("PROTON_USE_NTSYNC", "1")

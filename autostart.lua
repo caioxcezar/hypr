@@ -8,6 +8,7 @@
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function()
+	hl.exec_cmd("hyprctl setcursor bloom 24")
 	hl.exec_cmd("awww-daemon")
 	hl.exec_cmd("wl-clip-persist --clipboard regular")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
