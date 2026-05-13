@@ -4,6 +4,13 @@
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
+local closeCommand = ""
+if NVIDIA then
+	closeCommand = "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown --vt 2 || hyprctl dispatch 'hl.dsp.exit()'"
+else
+	closeCommand = "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
+end
+
 hl.bind(mainMod .. " + W", hl.dsp.group.toggle())
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen("fullscreen"))
 hl.bind(mainMod .. " + L", hl.dsp.global("quickshell:lock-screen"))
@@ -13,10 +20,7 @@ local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind("Print", hl.dsp.exec_cmd("$HOME/.config/hypr/screenshot-monitor.sh"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("$HOME/.config/hypr/screenshot.sh"))
 -- closeWindowBind:set_enabled(false)
-hl.bind(
-	mainMod .. " + M",
-	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
-)
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(closeCommand))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(FileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(Menu))
@@ -38,8 +42,8 @@ for i = 1, 10 do
 end
 
 -- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+-- hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
+-- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))

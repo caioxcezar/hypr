@@ -87,6 +87,12 @@ hl.layer_rule({
 	match = { class = "quickshell" },
 })
 
+hl.layer_rule({
+	name = "grim-blur",
+	match = { class = "grim" },
+	blur = false,
+})
+
 hl.on("window.open", function(win)
 	if win.class == "jetbrains-toolbox" then
 		hl.timer(function()
