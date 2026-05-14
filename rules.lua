@@ -17,6 +17,11 @@ local suppressMaximizeRule = hl.window_rule({
 -- suppressMaximizeRule:set_enabled(false)
 
 hl.window_rule({
+	match = { float = true },
+	center = true,
+})
+
+hl.window_rule({
 	-- Fix some dragging issues with XWayland
 	name = "fix-xwayland-drags",
 	match = {
@@ -81,10 +86,15 @@ hl.window_rule({
 })
 
 hl.layer_rule({
+	name = "fix-blur",
+	match = { namespace = ".*" },
+	ignore_alpha = 0.01,
+})
+
+hl.layer_rule({
 	name = "quickshell-blur",
-	blur = true,
-	ignore_alpha = 0.1,
 	match = { namespace = "quickshell.*" },
+	blur = true,
 })
 
 hl.layer_rule({
