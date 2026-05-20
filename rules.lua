@@ -49,7 +49,7 @@ hl.window_rule({
 	name = "move-hyprland-run",
 	match = { class = "hyprland-run" },
 
-	move = "20 monitor_h-120",
+	move = { 20, "monitor_h-120" },
 	float = true,
 })
 
@@ -61,8 +61,8 @@ hl.window_rule({
 	},
 	float = true,
 	pin = true,
-	move = "1990 1110",
-	size = "563 317",
+	move = { "monitor_w - window_w - 10", "monitor_h - window_h - 10" },
+	size = { 563, 317 },
 	dim_around = false,
 })
 
@@ -93,7 +93,7 @@ hl.layer_rule({
 
 hl.layer_rule({
 	name = "quickshell-blur",
-	match = { namespace = "quickshell.*" },
+	match = { namespace = "(quickshell.*|launcher)" },
 	blur = true,
 })
 
