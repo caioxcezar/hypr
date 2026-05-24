@@ -17,8 +17,9 @@ local suppressMaximizeRule = hl.window_rule({
 -- suppressMaximizeRule:set_enabled(false)
 
 hl.window_rule({
-	match = { float = true },
+	match = { float = true, xwayland = false },
 	center = true,
+	no_blur = true,
 })
 
 hl.window_rule({
@@ -85,6 +86,18 @@ hl.window_rule({
 	float = true,
 })
 
+hl.window_rule({
+	name = "vesktop-w8",
+	match = { class = "vesktop" },
+	workspace = 8,
+})
+
+hl.window_rule({
+	name = "zen-w4",
+	match = { class = "app.zen_browser.zen" },
+	workspace = 4,
+})
+
 hl.layer_rule({
 	name = "fix-blur",
 	match = { namespace = ".*" },
@@ -108,14 +121,24 @@ hl.on("window.open", function(win)
 		hl.timer(function()
 			hl.dispatch(hl.dsp.window.center({ window = win }))
 		end, { timeout = 100, type = "oneshot" })
+	elseif string.find(win.class, "steam_app") or win.content == "game" then
+		hl.dispatch(hl.dsp.window.tag({ tag = "+game", window = win }))
 	end
 end)
+
+hl.window_rule({ match = { tag = "game", fullscreen = true }, confine_pointer = true })
 
 -- MASTER DUEL START
 hl.window_rule({
 	name = "untapped-floating-window",
 	match = { class = "steam_app_1449850", title = "^(.*Untapped.gg Overlay.*)$" },
 	no_blur = true,
+})
+
+hl.window_rule({
+	name = "masterduel",
+	match = { class = "steam_app_1449850", title = "masterduel" },
+	render_unfocused = true,
 })
 
 -- hl.window_rule({
