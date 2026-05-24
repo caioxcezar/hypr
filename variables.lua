@@ -22,6 +22,7 @@ KDE = nautilus ~= ""
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_THEME", "bloom")
+hl.env("GDK_BACKEND", "wayland,x11")
 
 hl.env("PROTON_ENABLE_WAYLAND", "1")
 hl.env("PROTON_USE_NTSYNC", "1")
