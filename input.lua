@@ -45,3 +45,12 @@ hl.device(Merge({ name = "compx-2.4g-wireless-receiver" }, rk84))
 
 hl.device(Merge({ name = "huion-huion-monitor-stylus" }, kanvas_pro))
 hl.device(Merge({ name = "huion-huion-monitor" }, kanvas_pro))
+
+hl.device({
+	name = "logi-k250",
+	kb_layout = "br",
+})
+hl.device({
+	name = "at-translated-set-2-keyboard",
+	kb_layout = "br",
+})
