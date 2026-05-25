@@ -10,6 +10,7 @@ Menu = "fuzzel"
 local vga = string.lower(RunCommand("lspci | grep -i 'vga\\|3d\\|display'"))
 local nautilus = Trim(RunCommand("whereis -b dolphin | cut -d: -f2-"))
 
+HOSTNAME = Trim(RunCommand("cat /etc/hostname"))
 NVIDIA = string.find(vga, "nvidia")
 AMD = string.find(vga, "amd")
 KDE = nautilus ~= ""
