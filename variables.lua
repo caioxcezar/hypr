@@ -5,7 +5,7 @@
 -- Set programs that you use
 Terminal = "foot"
 FileManager = "nautilus"
-Menu = "fuzzel"
+Menu = "albert toggle"
 
 local vga = string.lower(RunCommand("lspci | grep -i 'vga\\|3d\\|display'"))
 local nautilus = Trim(RunCommand("whereis -b dolphin | cut -d: -f2-"))

@@ -40,8 +40,8 @@ local kanvas_pro = {
 	left_handed = true,
 }
 
-hl.device(Merge({ name = "compx-2.4g-wireless-receiver-keyboard" }, rk84))
 hl.device(Merge({ name = "compx-2.4g-wireless-receiver" }, rk84))
+hl.device(Merge({ name = "sino-wealth-rk-bluetooth-keyboar" }, rk84))
 
 hl.device(Merge({ name = "huion-huion-monitor-stylus" }, kanvas_pro))
 hl.device(Merge({ name = "huion-huion-monitor" }, kanvas_pro))

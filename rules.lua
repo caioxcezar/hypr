@@ -80,6 +80,18 @@ hl.window_rule({
 	no_follow_mouse = true,
 })
 
+hl.on("window.open", function(win)
+	if win.class == "jetbrains-toolbox" then
+		hl.timer(function()
+			hl.dispatch(hl.dsp.window.center({ window = win }))
+		end, { timeout = 100, type = "oneshot" })
+	elseif string.find(win.class, "steam_app") or win.content == "game" then
+		hl.dispatch(hl.dsp.window.tag({ tag = "+game", window = win }))
+	else
+		hl.dispatch(hl.dsp.window.move({ workspace = hl.get_active_workspace(), window = win }))
+	end
+end)
+
 hl.window_rule({
 	name = "ab-downloadmanager-add-float",
 	match = { class = "com-abdownloadmanager-desktop-AppKt" },
@@ -96,6 +108,16 @@ hl.window_rule({
 	name = "zen-w4",
 	match = { class = "app.zen_browser.zen" },
 	workspace = 4,
+})
+
+hl.window_rule({
+	name = "albert",
+	match = { class = "albert", float = true },
+	pin = true,
+	stay_focused = true,
+	focus_on_activate = true,
+	border_size = 0,
+	no_shadow = true,
 })
 
 hl.layer_rule({
@@ -115,16 +137,6 @@ hl.layer_rule({
 	match = { namespace = "selection" },
 	blur = false,
 })
-
-hl.on("window.open", function(win)
-	if win.class == "jetbrains-toolbox" then
-		hl.timer(function()
-			hl.dispatch(hl.dsp.window.center({ window = win }))
-		end, { timeout = 100, type = "oneshot" })
-	elseif string.find(win.class, "steam_app") or win.content == "game" then
-		hl.dispatch(hl.dsp.window.tag({ tag = "+game", window = win }))
-	end
-end)
 
 hl.window_rule({ match = { tag = "game", fullscreen = true }, confine_pointer = true })
 
