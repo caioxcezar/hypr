@@ -49,8 +49,10 @@ hl.device(Merge({ name = "huion-huion-monitor" }, kanvas_pro))
 hl.device({
 	name = "logi-k250",
 	kb_layout = "br",
+	numlock_by_default = true,
 })
 hl.device({
 	name = "at-translated-set-2-keyboard",
 	kb_layout = "br",
+	numlock_by_default = true,
 })
