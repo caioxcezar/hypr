@@ -127,7 +127,7 @@ hl.layer_rule({
 })
 
 hl.layer_rule({
-	name = "quickshell-blur",
+	name = "blur",
 	match = { namespace = "(quickshell.*|launcher)" },
 	blur = true,
 })
@@ -138,7 +138,11 @@ hl.layer_rule({
 	blur = false,
 })
 
-hl.window_rule({ match = { tag = "game", fullscreen = true }, confine_pointer = true })
+hl.window_rule({
+	match = { tag = "game", fullscreen = true },
+	-- confine_pointer = true,
+	idle_inhibit = "fullscreen",
+})
 
 -- MASTER DUEL START
 hl.window_rule({
