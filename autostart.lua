@@ -8,6 +8,11 @@
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function()
+	if HOSTNAME == "B450M" then
+		hl.workspace_rule({ workspace = "1", monitor = "DP-3" })
+	end
+	hl.dsp.focus({ workspace = "1" })
+
 	hl.exec_cmd("xrandr --output DP-3 --primary")
 	hl.exec_cmd("hyprctl setcursor bloom 24")
 	hl.exec_cmd("awww-daemon")
