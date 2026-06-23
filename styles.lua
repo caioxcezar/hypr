@@ -57,7 +57,7 @@ hl.config({
 			border_inactive = "rgba(595959aa)",
 		},
 		groupbar = {
-			col = { active = "rgb(131313)", inactive = "rgba(2c131313)" },
+			col = { active = "rgb(131313)", inactive = "rgba(255, 255, 255, 0.24)" },
 			height = 18,
 			keep_upper_gap = false,
 			gradients = true,
@@ -147,7 +147,7 @@ hl.config({
 
 hl.config({
 	misc = {
-		force_default_wallpaper = -1, -- Set to 0 or 1 to disable the anime mascot wallpapers
-		disable_hyprland_logo = false, -- If true disables the random hyprland logo / anime girl background. :(
+		force_default_wallpaper = -1,
+		disable_hyprland_logo = true,
 	},
 })
