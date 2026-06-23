@@ -28,8 +28,23 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 
 -- Move focus with mainMod + arrow keys
-hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + left", function()
+	local win = hl.get_active_window()
+	if win and win.group then
+		hl.dispatch(hl.dsp.group.prev())
+	else
+		hl.dispatch(hl.dsp.focus({ direction = "left" }))
+	end
+end)
+
+hl.bind(mainMod .. " + right", function()
+	local win = hl.get_active_window()
+	if win and win.group then
+		hl.dispatch(hl.dsp.group.next())
+	else
+		hl.dispatch(hl.dsp.focus({ direction = "right" }))
+	end
+end)
 hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
 
@@ -98,3 +113,14 @@ hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.move({ direction = "u" }))
 hl.bind(mainMod .. " + SHIFT + down", hl.dsp.window.move({ direction = "d" }))
 
 hl.bind("switch:on:Lid Switch", hl.dsp.global("quickshell:lock-screen"), { locked = true })
+
+hl.bind("ALT + R", hl.dsp.submap("resize"))
+
+hl.define_submap("resize", function()
+	hl.bind("right", hl.dsp.window.resize({ x = 10, y = 0, relative = true }), { repeating = true })
+	hl.bind("left", hl.dsp.window.resize({ x = -10, y = 0, relative = true }), { repeating = true })
+	hl.bind("up", hl.dsp.window.resize({ x = 0, y = 10, relative = true }), { repeating = true })
+	hl.bind("down", hl.dsp.window.resize({ x = 0, y = -10, relative = true }), { repeating = true })
+
+	hl.bind("escape", hl.dsp.submap("reset"))
+end)
