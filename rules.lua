@@ -70,7 +70,7 @@ hl.window_rule({
 hl.window_rule({
 	name = "dbeaver-focus-error",
 	match = { class = "^(DBeaver|SWT)", float = true },
-	stay_focused = true,
+	no_initial_focus = true,
 })
 
 hl.window_rule({
