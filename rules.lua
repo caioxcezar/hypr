@@ -85,7 +85,7 @@ hl.on("window.open", function(win)
 		hl.timer(function()
 			hl.dispatch(hl.dsp.window.center({ window = win }))
 		end, { timeout = 100, type = "oneshot" })
-	elseif string.find(win.class, "steam_app") or win.content == "game" then
+	elseif string.find(win.class, "steam_app") or string.find(win.class, "steam_proton") or win.content == "game" then
 		hl.dispatch(hl.dsp.window.tag({ tag = "+game", window = win }))
 	else
 		hl.dispatch(hl.dsp.window.move({ workspace = hl.get_active_workspace(), window = win }))
@@ -139,8 +139,13 @@ hl.layer_rule({
 })
 
 hl.window_rule({
+	match = { class = "(app.zen_browser.zen|com.stremio.Stremio)", fullscreen = 2 },
+	idle_inhibit = "fullscreen",
+})
+
+hl.window_rule({
 	match = { tag = "game", fullscreen = true },
-	-- confine_pointer = true,
+	confine_pointer = true,
 	idle_inhibit = "fullscreen",
 })
 

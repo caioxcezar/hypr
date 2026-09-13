@@ -18,3 +18,7 @@ function Merge(table1, table2)
 	end
 	return table1
 end
+
+function RunCommandsafe(cmd, params)
+	hl.exec_cmd("which " .. cmd .. " >/dev/null 2>&1 && " .. cmd .. " " .. params)
+end
