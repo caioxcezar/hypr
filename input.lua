@@ -44,6 +44,7 @@ local kanvas_pro = {
 }
 
 hl.device(Merge({ name = "compx-2.4g-wireless-receiver" }, rk84_br))
+hl.device(Merge({ name = "sino-wealth-rk-bluetooth-keyboard-1" }, rk84_br))
 hl.device(Merge({ name = "sino-wealth-rk-bluetooth-keyboard" }, rk84_br))
 -- hl.device(Merge({ name = "compx-2.4g-wireless-receiver" }, rk84_en))
 -- hl.device(Merge({ name = "sino-wealth-rk-bluetooth-keyboar" }, rk84_en))

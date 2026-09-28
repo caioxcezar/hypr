@@ -44,6 +44,7 @@ if KDE then
 end
 
 if NVIDIA then
+	hl.env("__EGL_VENDOR_LIBRARY_FILENAMES", "/usr/share/glvnd/egl_vendor.d/10_nvidia.json")
 	hl.env("LIBVA_DRIVER_NAME", "nvidia")
 	hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 	hl.env("PROTON_ENABLE_NVAPI", "1")
