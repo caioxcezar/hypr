@@ -4,16 +4,14 @@
 
 -- Set programs that you use
 Terminal = "foot"
-FileManager = "nautilus"
+FileManager = "thunar"
 Menu = "albert toggle"
 
 local vga = string.lower(RunCommand("lspci | grep -i 'vga\\|3d\\|display'"))
-local nautilus = Trim(RunCommand("whereis -b dolphin | cut -d: -f2-"))
 
 HOSTNAME = Trim(RunCommand("cat /etc/hostname"))
 NVIDIA = string.find(vga, "nvidia")
 AMD = string.find(vga, "amd")
-KDE = nautilus ~= ""
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -35,13 +33,11 @@ hl.env("PROTON_USE_NTSYNC", "1")
 hl.env("PROTON_ENABLE_HDR", "1")
 hl.env("WAYLANDDRV_PRIMARY_MONITOR", "DP-3")
 
-if KDE then
-	hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
-	hl.env("QT_QPA_PLATFORM", "wayland;xcb")
-	hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
-	hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
-	hl.env("XDG_MENU_PREFIX", "arch-")
-end
+hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
+hl.env("QT_QPA_PLATFORM", "wayland;xcb")
+hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+hl.env("XDG_MENU_PREFIX", "arch-")
 
 if NVIDIA then
 	hl.env("__EGL_VENDOR_LIBRARY_FILENAMES", "/usr/share/glvnd/egl_vendor.d/10_nvidia.json")
