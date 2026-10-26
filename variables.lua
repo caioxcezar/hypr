@@ -5,7 +5,7 @@
 -- Set programs that you use
 Terminal = "foot"
 FileManager = "thunar"
-Menu = "albert toggle"
+Menu = "noctalia msg panel-toggle launcher"
 
 local vga = string.lower(RunCommand("lspci | grep -i 'vga\\|3d\\|display'"))
 
