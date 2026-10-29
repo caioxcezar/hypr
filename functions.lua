@@ -22,3 +22,11 @@ end
 function RunCommandsafe(cmd, params)
 	hl.exec_cmd("which " .. cmd .. " >/dev/null 2>&1 && " .. cmd .. " " .. params)
 end
+
+function Message(text, timeout, icon) 
+	hl.notification.create({
+		text = text,
+		timeout = timeout or 5000,
+		icon = icon
+	})
+end

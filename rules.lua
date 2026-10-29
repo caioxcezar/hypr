@@ -68,12 +68,6 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	name = "dbeaver-focus-error",
-	match = { class = "^(DBeaver|SWT)", float = true },
-	no_initial_focus = true,
-})
-
-hl.window_rule({
 	name = "quickshel-no-focus",
 	match = { class = "quickshell" },
 	no_focus = true,
@@ -81,7 +75,13 @@ hl.window_rule({
 })
 
 hl.on("window.open", function(win)
-	if win.class == "jetbrains-toolbox" then
+	local win_class = (win.class or "")
+
+	if (win_class:match("^DBeaver") or win_class:match("^SWT") or win_class == "jetbrains-rider") and win.floating then
+		local cx = win.at.x + win.size.x / 2
+		local cy = win.at.y + win.size.y / 2
+		hl.dispatch(hl.dsp.cursor.move({ x = cx, y = cy }))
+	elseif win.class == "jetbrains-toolbox" then
 		hl.timer(function()
 			hl.dispatch(hl.dsp.window.center({ window = win }))
 		end, { timeout = 100, type = "oneshot" })
