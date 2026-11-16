@@ -21,13 +21,13 @@ if HOSTNAME == "R732512AI-15" then
 elseif HOSTNAME == "B450M" then
 	hl.monitor({
 		output = "DP-3",
-		mode = "2560x1440@180",
+		mode = "2560x1440@180.00Hz",
 		position = "0x0",
 		scale = "1",
-		bitdepth = 8,
+		bitdepth = 10,
 		supports_hdr = 1,
 		vrr = 1,
-		cm = "auto",
+		cm = "srgb",
 		supports_wide_color = 1,
 		sdr_max_luminance = 80,
 		max_luminance = 600,

@@ -51,6 +51,7 @@ hl.device(Merge({ name = "sino-wealth-rk-bluetooth-keyboard" }, rk84_br))
 
 hl.device(Merge({ name = "huion-huion-monitor-stylus" }, kanvas_pro))
 hl.device(Merge({ name = "huion-huion-monitor" }, kanvas_pro))
+hl.device(Merge({ name = "huion-huion-monitor-pen" }, kanvas_pro))
 
 hl.device({
 	name = "logi-k250",
